@@ -7,28 +7,47 @@ set cpo&vim
 
 syn case match
 
+" Comments
+syn keyword saftTodo contained TODO FIXME XXX
+syn match saftComment "#.*$" contains=saftTodo,@Spell
+
 " Keywords
-syn keyword Conditional if else
-syn keyword Repeat loop
-syn keyword Keyword fn return break
+syn keyword saftConditional if else
+syn keyword saftRepeat loop
+syn keyword saftKeyword fn return break
 
 " Literals
 " ---
 " constants
-syn keyword Constant nil true false
+syn keyword saftConstant nil true false
 
 " floats
-syn match Number "\<\d\+\.\d*\>"
-syn match Number "\<\.\d*\>"
+syn match saftNumber "\<\d\+\.\d*\>"
+syn match saftNumber "\<\.\d*\>"
 
 " integer
-syn match Number "\<\d\+\>"
+syn match saftNumber "\<\d\+\>"
 
 " string
-syn match String "\"[^\"]*\""
+syn match saftString "\"[^\"]*\""
 
 " Operators
-syn keyword Operator and or := = + - * / // ^ < <= > >= == ! !=
+syn keyword saftOperator and or := = + - * / // ^ < <= > >= == ! !=
 
 " Builtin functions
-syn keyword Function sin cos time print repr read split join
+syn keyword saftFunction sin cos time print repr read split join
+
+hi def link saftTodo Todo
+hi def link saftComment Comment
+
+hi def link saftConditional Conditional
+hi def link saftRepeat Repeat
+hi def link saftKeyword Keyword
+
+hi def link saftConstant Constant
+hi def link saftNumber Number
+hi def link saftString String
+
+hi def link saftOperator Operator
+
+hi def link saftFunction Function
